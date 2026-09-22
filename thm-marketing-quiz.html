@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tourism &amp; Hospitality Marketing: answer key and mock quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f2efe8; --surface:#fffdf8; --ink:#241f16; --muted:#6b6255; --line:#ddd5c4;
+  --accent:#a6472e; --accent-ink:#fff8f0; --accent-soft:#f3ddd4;
+  --gold:#8a6b1f; --gold-soft:#f1e6c8; --ok:#3c6e4a; --ok-soft:#dcead9; --bad:#a6472e; --bad-soft:#f3ddd4;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#171310; --surface:#1f1a15; --ink:#efe7da; --muted:#b1a591; --line:#3a3226;
+    --accent:#e08a6f; --accent-ink:#241108; --accent-soft:#3a251d;
+    --gold:#d9b85a; --gold-soft:#3a301a; --ok:#7fbf8f; --ok-soft:#1f3324; --bad:#e08a6f; --bad-soft:#3a251d;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#171310; --surface:#1f1a15; --ink:#efe7da; --muted:#b1a591; --line:#3a3226;
+  --accent:#e08a6f; --accent-ink:#241108; --accent-soft:#3a251d;
+  --gold:#d9b85a; --gold-soft:#3a301a; --ok:#7fbf8f; --ok-soft:#1f3324; --bad:#e08a6f; --bad-soft:#3a251d;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 120px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:16.5px;line-height:1.55}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.15;margin:0}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.top-in{max-width:800px;margin:0 auto;padding:14px 20px 0}
+.top h1{font-size:1.4rem}
+.sub{margin:3px 0 10px;color:var(--muted);font-size:.92rem}
+.tabs{display:flex;gap:4px;overflow-x:auto}
+.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 14px;cursor:pointer;color:var(--muted);font-weight:600;white-space:nowrap;font-size:.95rem}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+
+main{max-width:800px;margin:0 auto;padding:22px 20px 60px}
+.panel[hidden]{display:none}
+
+/* answer key */
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:18px}
+.tools input[type=search]{flex:1 1 200px;min-width:0;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--surface);padding:6px 12px;border-radius:999px;cursor:pointer;font-size:.88rem}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.link-btn{background:none;border:0;color:var(--accent);cursor:pointer;text-decoration:underline;padding:6px 2px;font-size:.9rem}
+.count{color:var(--muted);font-size:.88rem;margin:0 0 6px}
+h2.sec{font-size:1.3rem;margin:34px 0 4px;padding-top:6px}
+h3.grp{font-family:"Inter",system-ui,sans-serif;font-size:.95rem;font-weight:700;color:var(--gold);margin:22px 0 4px;text-transform:none}
+details.item{border-top:1px solid var(--line)}
+details.item:last-of-type{border-bottom:1px solid var(--line)}
+details.item summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:2.2rem 1fr 1.2rem;gap:8px;padding:12px 0;align-items:start}
+details.item summary::-webkit-details-marker{display:none}
+details.item summary::after{content:"";width:8px;height:8px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);margin-top:8px;transition:transform .15s}
+details.item[open] summary::after{transform:rotate(-135deg);margin-top:11px}
+.num{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.qt{font-weight:600}
+.ans{padding:0 0 14px 2.2rem}
+.ans ul{margin:0 0 8px;padding-left:1.1rem}
+.ans li{margin:3px 0}
+.term{font-weight:700}
+
+/* quiz setup */
+.lead{color:var(--muted);margin:0 0 18px;max-width:62ch}
+.setup{display:grid;gap:16px;max-width:520px}
+.setup label{display:grid;gap:4px;font-weight:600}
+.setup select{padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.setup .check{display:flex;gap:10px;align-items:center;font-weight:500}
+.btn{border:1px solid var(--line);background:var(--surface);padding:10px 18px;border-radius:8px;cursor:pointer;font-weight:600}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+
+/* taking the quiz */
+.qz-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.qz-head h2{font-size:1.05rem;color:var(--muted);font-family:"Inter",sans-serif;font-weight:700}
+.qz-progress{font-variant-numeric:tabular-nums;color:var(--gold);font-weight:600;font-size:.9rem}
+.qbar{height:4px;background:var(--line);border-radius:2px;margin:0 0 22px;overflow:hidden}
+.qbar i{display:block;height:100%;background:var(--accent)}
+.paper{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 20px 8px;margin-bottom:22px}
+.pq{display:flex;gap:12px;padding:16px 0;border-top:1px solid var(--line)}
+.pq:first-child{border-top:0;padding-top:2px}
+.pnum{font-weight:700;color:var(--accent);flex:none;width:1.8rem;font-variant-numeric:tabular-nums}
+.pbody{flex:1;min-width:0}
+.ptopic{color:var(--muted);font-size:.82rem;margin:0 0 3px}
+.pstem{font-weight:600;margin:0 0 10px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:8px;padding:9px 12px;cursor:pointer}
+.opt input{margin-top:4px;flex:none;accent-color:var(--accent)}
+.opt .lab{font-weight:700;color:var(--muted);flex:none;width:1.1rem}
+.opt.picked{border-color:var(--accent);background:var(--accent-soft)}
+.submit-bar{position:sticky;bottom:env(safe-area-inset-bottom,0px);background:var(--bg);border-top:1px solid var(--line);padding:12px 0 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.unanswered{color:var(--muted);font-size:.88rem}
+
+/* results / answer sheet */
+.result-big{font-family:"Fraunces",Georgia,serif;font-size:3rem;line-height:1;margin:8px 0}
+.result-sub{color:var(--muted);margin:0 0 22px}
+.sheet-title{font-size:1.05rem;margin:0 0 10px;font-family:"Inter",sans-serif;font-weight:700;color:var(--muted)}
+.bubble-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-bottom:26px}
+.bubble{border:1px solid var(--line);border-radius:8px;padding:8px 10px;display:flex;align-items:center;gap:8px;background:var(--surface)}
+.bubble.correct{border-color:var(--ok);background:var(--ok-soft)}
+.bubble.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.bnum{font-weight:700;font-variant-numeric:tabular-nums;width:1.6rem;flex:none}
+.bletters{display:flex;gap:4px}
+.bletter{width:1.5rem;height:1.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;border:1px solid var(--line);color:var(--muted)}
+.bletter.your{border-color:var(--ink);color:var(--ink)}
+.bletter.right{background:var(--ok);border-color:var(--ok);color:var(--accent-ink)}
+.bletter.your.wrong-pick{background:var(--bad);border-color:var(--bad);color:var(--accent-ink)}
+.review{margin-top:8px}
+.review-item{border-top:1px solid var(--line);padding:16px 0}
+.review-item:first-child{border-top:0}
+.rhead{display:flex;gap:10px;align-items:baseline;margin-bottom:6px}
+.tag{font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;flex:none}
+.tag.correct{background:var(--ok-soft);color:var(--ok)}
+.tag.wrong{background:var(--bad-soft);color:var(--bad)}
+.rq{font-weight:600}
+.ropts{list-style:none;margin:8px 0;padding:0;font-size:.95rem}
+.ropts li{padding:5px 0 5px 1.6rem;position:relative}
+.ropts li.right::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:700}
+.ropts li.picked-wrong::before{content:"✕";position:absolute;left:0;color:var(--bad);font-weight:700}
+.ropts li.right{font-weight:600}
+.explain{background:var(--gold-soft);border-radius:8px;padding:10px 12px;font-size:.92rem;margin-top:6px}
+.weak{list-style:none;margin:10px 0 0;padding:0}
+.weak li{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-top:1px solid var(--line);font-size:.95rem}
+
+@media (max-width:520px){
+  body{font-size:16px}
+  .ans{padding-left:0}
+  details.item summary{grid-template-columns:1.9rem 1fr 1rem}
+  .bubble-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media print{
+  .top,.tools,#tab-quiz{display:none!important}
+  #tab-key{display:block!important}
+  body{background:#fff;color:#000}
+  details.item{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <h1>Tourism &amp; Hospitality Marketing</h1>
+    <p class="sub">Answer key and a mock quiz with a graded answer sheet — Lectures 1–4</p>
+    <nav class="tabs" role="tablist" aria-label="Study modes">
+      <button role="tab" id="t-key" data-tab="key" aria-selected="true" aria-controls="tab-key">Answer key</button>
+      <button role="tab" id="t-quiz" data-tab="quiz" aria-selected="false" aria-controls="tab-quiz">Mock quiz</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="tab-key" class="panel" role="tabpanel" aria-labelledby="t-key">
+    <div class="tools">
+      <input type="search" id="q" placeholder="Search questions and answers" aria-label="Search the answer key">
+      <div class="chips" id="chips">
+        <button class="chip" data-f="ALL" aria-pressed="true">All</button>
+        <button class="chip" data-f="L1" aria-pressed="false">Lecture 1</button>
+        <button class="chip" data-f="L2" aria-pressed="false">8 Ps</button>
+        <button class="chip" data-f="L3" aria-pressed="false">Consumer behavior</button>
+        <button class="chip" data-f="L4" aria-pressed="false">Environment &amp; competition</button>
+      </div>
+      <button class="link-btn" id="expand">Expand all</button>
+    </div>
+    <p class="count" id="count"></p>
+    <div id="key-root"></div>
+  </section>
+
+  <section id="tab-quiz" class="panel" role="tabpanel" aria-labelledby="t-quiz" hidden>
+    <div id="quiz-root"></div>
+  </section>
+</main>
+
+<script>
+(function(){
+"use strict";
+
+var SEC = {
+  L1:"Lecture 1: Foundational concepts",
+  L2:"Lectures 2–3: The 8 Ps service marketing mix",
+  L3:"Lesson 3: Tourism consumer behavior",
+  L4:"Lecture 4: Marketing environment and competitive analysis"
+};
+
+/* =================== ANSWER KEY (open-ended study notes) =================== */
+var KEY = [
+/* ---- LECTURE 1 ---- */
+{n:1,s:"L1",g:"Marketing basics",q:"How does the module define marketing, and how does that differ from tourism and hospitality marketing specifically?",
+ a:["Marketing is the process for getting a company's product or service out to consumers.",
+    "Tourism and hospitality marketing is how segments of the tourism industry promote their products or services to prospective travelers and guests.",
+    "It covers market research, product positioning, promotion, pricing, and distribution strategies that connect businesses with buyers."]},
+{n:2,s:"L1",g:"Marketing basics",q:"Why does hospitality need a tailored marketing approach instead of traditional product marketing tactics?",
+ a:["Tourism and hospitality belong strictly to the service sector.",
+    "Hospitality offerings are intangible experiences, real-time service performances, and personal interactions, unlike physical manufactured products.",
+    "Traditional physical-product tactics fail here; specialized strategies are needed for intangibility, perishability, and simultaneous production."]},
+{n:3,s:"L1",g:"Marketing basics",q:"Name and explain the three components of the marketing concept.",
+ a:["Guest needs, wants, and demands: understanding and satisfying what guests need, want, and are willing to pay for is the primary focus.",
+    "Sustainable profitability: companies aim to profit by satisfying customer demands more effectively and efficiently than competitors.",
+    "Integrated marketing: marketing is a concerted effort from everyone in the company, from frontline staff to senior management."]},
+{n:4,s:"L1",g:"Characteristics of tourism services",q:"Explain service intangibility and service inseparability, with their marketing implications.",
+ a:["Intangibility: hospitality products cannot be seen, tasted, felt, heard, or smelled before purchase. Implication: marketers must provide strong physical evidence and brand signals to reduce buyer uncertainty.",
+    "Inseparability: the service provider and the customer must interact for the transaction to happen. Implication: frontline staff become co-creators of the experience and brand ambassadors."]},
+{n:5,s:"L1",g:"Characteristics of tourism services",q:"Explain perishability of inventory and demand variability, with their marketing implications.",
+ a:["Perishability: unsold hotel rooms or airline seats cannot be stored for future sale; an unsold room tonight is revenue lost forever. Implication: dynamic pricing, yield management, and promotional discounting balance supply and demand.",
+    "Demand variability: tourism demand is heavily influenced by seasonality, economic shifts, weather, and geopolitical events. Implication: strategies must target off-peak segments (conventions, business travel) to stabilize revenue."]},
+{n:6,s:"L1",g:"Customer needs and demands",q:"What three ideas describe how tourism fulfills guest expectations?",
+ a:["Needs vs. wants: tourism addresses psychological needs for rest, escape, and self-actualization.",
+    "The experience economy: guests buy memorable experiences and emotional moments, not just a room.",
+    "No ownership: consumers buy the temporary right to use a service without owning any physical asset."]},
+{n:7,s:"L1",g:"Industry metrics",q:"Why is retention valued so highly in hospitality marketing?",
+ a:["It costs up to five times more to attract a new customer than to retain an existing guest.",
+    "Repeat visitors spend more per trip and lower customer acquisition costs significantly."]},
+{n:8,s:"L1",g:"Marketing strategies",q:"Differentiate brand marketing, emotional engagement, and place marketing.",
+ a:["Brand marketing: developing distinct visual and experiential signatures that set a resort or airline apart from competitors.",
+    "Emotional engagement: using storytelling, imagery, and sensory cues to evoke nostalgia, excitement, or relaxation.",
+    "Place marketing: promoting geographic locations as compelling destinations with unique cultural and recreational value."]},
+{n:9,s:"L1",g:"Specialized tactics",q:"What is affinity marketing, and how does it differ from multi-channel distribution?",
+ a:["Affinity marketing: partnering with organizations, credit cards, or alumni associations to target group affiliations with tailored packages and co-branded offers.",
+    "Multi-channel distribution: combining direct booking channels (website, apps) with OTAs, global distribution systems (GDS), and travel agents."]},
+{n:10,s:"L1",g:"Traditional vs. tourism marketing",q:"Compare traditional product marketing and tourism and hospitality marketing across product nature, production/consumption, inventory, and the human element.",
+ a:["Product nature: tangible goods with physical ownership vs. intangible experience and temporary access.",
+    "Production and consumption: separated in space and time vs. simultaneous (inseparable).",
+    "Inventory storage: can be warehoused for future demand vs. perishable, zero shelf life.",
+    "Human element: factory processes hidden from the buyer vs. frontline staff directly define product quality."]},
+{n:11,s:"L1",g:"Marketing planning process",q:"Name and describe the four stages of the marketing planning process.",
+ a:["Audit and research: analyze market environment, competitor positioning, and guest segments.",
+    "Targeting: select high-yield visitor segments and define value propositions.",
+    "Campaign mix: deploy digital ads, OTAs, social proof, and emotional campaigns.",
+    "Review and loyalty: monitor online reviews, guest satisfaction, and repeat visit rate."]},
+
+/* ---- LECTURE 2/3: 8 Ps ---- */
+{n:12,s:"L2",g:"Unique nature of services",q:"Lesson 2 restates the unique nature of tourism services as four points. What are they?",
+ a:["Intangible experience: guests buy an emotional memory and time-bound access, not a physical trial.",
+    "Simultaneous production and consumption: the service is created in real time in front of the guest.",
+    "Perishable inventory: unsold rooms or cruise cabin nights cannot be stored; lost revenue is gone forever.",
+    "Heterogeneous output: service quality varies with staff performance, guest mood, and operational circumstances."]},
+{n:13,s:"L2",g:"1st P: Product",q:"What is the tourism product structure, and what is the difference between facilitating and enhancing services?",
+ a:["The product combines tangible physical facilities (rooms, food, amenities) with intangible core benefits (rest, prestige, recreation, safety).",
+    "Facilitating services: essential elements guests need to consume the core service, e.g., check-in desk, reservation portal, keycards.",
+    "Enhancing services: value-added elements that differentiate the brand, e.g., fine dining, personalized butler service, airport shuttle."]},
+{n:14,s:"L2",g:"2nd P: Place",q:"Differentiate direct and indirect (intermediary) distribution.",
+ a:["Direct distribution: booking directly via brand websites, apps, or the front desk; maximizes profit margin and gives direct ownership of guest relationship data.",
+    "Indirect distribution: OTAs (Agoda, Booking.com), GDS, and tour operators reach global market segments through intermediaries."]},
+{n:15,s:"L2",g:"3rd P: Price",q:"What is RevPAR, and what are rate fences?",
+ a:["RevPAR: Revenue Per Available Room, a key yield metric.",
+    "Dynamic pricing: revenue management systems adjust rates based on demand seasonality, booking windows, lead times, and competitor benchmarks.",
+    "Rate fences: rules such as non-refundable terms, length-of-stay requirements, and advance-purchase discounts used to segment price-sensitive guests."]},
+{n:16,s:"L2",g:"3rd P: Price",q:"What is the “pricing tripod” in hospitality?",
+ a:["Hospitality rates must balance guest perceived value, operating cost recovery, and competitiveness in destination markets, all at once."]},
+{n:17,s:"L2",g:"4th P: Promotion",q:"What three tactics does the module list under promotion and “tangibilizing” the service?",
+ a:["Tangibilizing the service: high-definition imagery, virtual tours, and sensory descriptions make intangible experiences tangible.",
+    "User-generated content: guest social media posts, travel vlogs, and review portals (TripAdvisor) create authentic social proof.",
+    "Destination partnerships: co-branding between hotels, airlines, and local tourism boards (DMOs) creates compelling travel packages."]},
+{n:18,s:"L2",g:"5th P: People",q:"What roles do frontline personnel, emotional labor, and internal marketing play?",
+ a:["Frontline personnel: front desk agents, concierges, and servers represent the face of the brand.",
+    "Emotional labor: staff perform emotional labor to consistently deliver genuine warmth, empathy, and hospitality.",
+    "Internal marketing: recruiting, training, and empowering employees so they deliver exceptional guest experiences."]},
+{n:19,s:"L2",g:"6th P: Process",q:"What is service blueprinting, and what is self-service technology (SST)?",
+ a:["Service blueprinting: mapping the entire guest journey from pre-arrival booking to post-checkout departure, identifying frontstage interactions, backstage operations, and potential service fail points.",
+    "Self-service technology: contactless check-in kiosks, digital room keys, and mobile ordering, reducing wait times while maintaining service reliability."]},
+{n:20,s:"L2",g:"7th P: Physical evidence",q:"What is the hospitality servicescape, and why does it matter?",
+ a:["It is the physical environment, including architecture, interior design, lighting, music, scent, and cleanliness, that shapes guest expectations and emotional comfort.",
+    "Every tangible element communicates brand positioning, whether a rustic eco-lodge or an ultra-luxury urban hotel."]},
+{n:21,s:"L2",g:"8th P: Partnership",q:"Why does the module add an 8th P, and what does it cover?",
+ a:["In tourism, no single supplier operates in isolation; success depends on collaborative networks among transport providers, lodging, attractions, and local governments.",
+    "Strategic alliances: airline code-shares, hotel-airline loyalty point integrations, and regional destination marketing alliances expand market reach and add customer value."]},
+{n:22,s:"L2",g:"Summary matrix",q:"Match each of the 8 Ps to its strategic marketing objective, per the summary matrix.",
+ a:["Product → creating memorable guest experiences.",
+    "Place → maximizing booking accessibility.",
+    "Price → optimizing RevPAR and guest yield.",
+    "Promotion → tangibilizing service promises.",
+    "People → delivering warm hospitality and empathy.",
+    "Process → eliminating friction and service failures.",
+    "Physical evidence → signaling quality through the servicescape.",
+    "Partnership → delivering seamless destination travel."]},
+{n:23,s:"L2",g:"Core principle",q:"What is the module's core principle statement about marketing in tourism and hospitality?",
+ a:["“In tourism and hospitality, marketing is not merely a department, it is an all-pervading philosophy where every guest interaction is a moment of truth.”"]},
+
+/* ---- LESSON 3: Consumer behavior ---- */
+{n:24,s:"L3",g:"Consumption model",q:"Name and describe the three stages of the guest consumption model.",
+ a:["Pre-purchase stage: need arousal (wanderlust), information search, risk evaluation, and selecting among destination alternatives.",
+    "Service encounter stage: direct interaction with the resort, airline, or attraction; experiencing moments of truth live.",
+    "Post-encounter stage: evaluating the experience against expectations, leading to delight, repeat loyalty, or negative word of mouth."]},
+{n:25,s:"L3",g:"Travel motivators",q:"Differentiate push and pull factors in travel motivation.",
+ a:["Push factors (internal): stress relief, escape, self-discovery, social status, and quality time with family.",
+    "Pull factors (external): tropical beaches, cultural heritage sites, luxury resorts, safety, and local gastronomy."]},
+{n:26,s:"L3",g:"Evaluating attributes",q:"Differentiate search, experience, and credence attributes, with an example of each.",
+ a:["Search attributes: evaluated before booking, e.g., room rates, location, star rating, photos, amenities list.",
+    "Experience attributes: felt only during the stay, e.g., bed comfort, food flavor, staff friendliness, pool atmosphere.",
+    "Credence attributes: hard to evaluate even after the stay, e.g., kitchen food safety standards, eco-sustainability practices."]},
+{n:27,s:"L3",g:"Perceived risk",q:"Name the four types of perceived travel and booking risk, with an example of each.",
+ a:["Functional risk: resort facilities failing to meet advertised standards, or bad weather.",
+    "Physical risk: safety concerns, illness in unfamiliar destinations, or transportation accidents.",
+    "Financial risk: overpaying, or non-refundable cancellation penalties during emergencies.",
+    "Psychological risk: fear of wasted vacation time and ruined family memories."]},
+{n:28,s:"L3",g:"Expectations",q:"What is the zone of tolerance, and how does it relate to desired vs. adequate service?",
+ a:["Desired service: the ideal performance level the guest hopes to receive.",
+    "Adequate service: the minimum acceptable threshold tolerated without dissatisfaction.",
+    "Zone of tolerance: the range of acceptable variation between the two; narrow for critical touchpoints (room cleanliness, check-in speed), wider for minor non-essential services."]},
+{n:29,s:"L3",g:"Experience economy",q:"Name the Pine and Gilmore “4 Es,” with an example of each.",
+ a:["Entertainment: passive absorption, e.g., shows, music.",
+    "Educational: active learning, e.g., cooking classes, heritage tours.",
+    "Escapist: immersive action, e.g., adventure sports.",
+    "Esthetic: immersive appreciation, e.g., scenic landscapes, luxury ambiance."]},
+{n:30,s:"L3",g:"Servuction model",q:"Name the three visible elements of the servuction model in hospitality.",
+ a:["Inanimate environment: physical décor, furniture, temperature, layout, and lighting visible to the guest.",
+    "Contact personnel: frontline staff directly interacting with guests and guiding their service journey.",
+    "Other customers: the behavior of fellow guests affects the atmosphere, e.g., a noisy dining room vs. a tranquil spa."]},
+{n:31,s:"L3",g:"Touchpoint intensity",q:"Differentiate high-contact and low-contact service encounters.",
+ a:["High-contact: guests physically enter the facility and remain throughout delivery (full-service resorts, fine dining, cruises); human touchpoints drive over 80% of guest satisfaction.",
+    "Low-contact: transactions occur digitally or at a distance (automated motel check-in, app-based food delivery); success depends on technological reliability and frictionless UX."]},
+{n:32,s:"L3",g:"Satisfaction model",q:"Explain the expectation disconfirmation model and its three outcomes.",
+ a:["Guests compare actual service performance against pre-purchase expectations.",
+    "Positive disconfirmation: performance exceeds expectation → delight.",
+    "Simple confirmation: performance matches expectation → satisfaction.",
+    "Negative disconfirmation: performance falls below expectation → dissatisfaction.",
+    "Delight requires unexpected positive surprises, emotional warmth, and spontaneous gestures beyond standard procedures."]},
+{n:33,s:"L3",g:"Loyalty and recovery",q:"What is the service recovery paradox, and what does the LAST framework stand for?",
+ a:["Recovery paradox: a guest whose service failure is resolved brilliantly can end up more loyal and satisfied than a guest who experienced no failure at all.",
+    "LAST framework: Listen, Apologize, Solve, and Thank — empowering frontline staff to fix guest problems immediately."]},
+{n:34,s:"L3",g:"Loyalty ladders",q:"Name and describe the three types of loyalty bonds.",
+ a:["Financial bonds: reward points, tier discounts, and free room upgrades encourage repeat bookings.",
+    "Social and personal bonds: recognizing returning guests by name, remembering room preferences, and personal notes.",
+    "Structural bonds: integrated guest management software and corporate booking portals locked into a client's workflows."]},
+{n:35,s:"L3",g:"Sustainable marketing",q:"What is the difference between ecotourism/green hospitality marketing and community-based tourism marketing?",
+ a:["Ecotourism and green hospitality: communicating authentic environmental initiatives (zero single-use plastics, farm-to-table dining, energy efficiency) without greenwashing.",
+    "Community-based tourism: marketing local culture responsibly, respecting indigenous heritage, and ensuring tourism's economic benefits flow back to host communities."]},
+
+/* ---- LECTURE 4 ---- */
+{n:36,s:"L4",g:"Marketing environment",q:"How does the module define the marketing environment, and how is it structured?",
+ a:["It consists of actors and forces outside marketing that affect management's ability to build and maintain successful relationships with target customers.",
+    "It is divided into the micro-environment (actors close to the company) and the macro-environment (broader societal forces affecting the entire micro-environment).",
+    "Tourism enterprises are highly sensitive to external shocks: pandemics, geopolitical crises, exchange rate swings, and climate events."]},
+{n:37,s:"L4",g:"Micro-environment",q:"Name the five actors in the micro-environment, with an example of each.",
+ a:["The company: internal departments (Finance, Operations, HR, R&D) shaping marketing strategy.",
+    "Suppliers: F&B vendors, laundry services, aircraft leases, local tour operators.",
+    "Intermediaries: OTAs (Booking.com, Agoda), travel agents, GDS platforms, wholesalers.",
+    "Competitors: alternative hotels, resorts, airlines, and dining options seeking guest wallet share.",
+    "Publics: financial institutions, media, government regulators, local resident communities."]},
+{n:38,s:"L4",g:"PESTEL",q:"List the six PESTEL factors with one example driver each.",
+ a:["Political: government stability, travel advisories, tax incentives, bilateral visa agreements.",
+    "Economic: exchange rates, fuel prices, inflation, disposable income, GDP growth.",
+    "Socio-cultural: demographic shifts, holiday preferences, wellness orientation, cultural heritage preservation.",
+    "Technological: AI booking bots, contactless check-in, IoT smart rooms, big data revenue optimization.",
+    "Environmental: climate change impacts, eco-certification demands, plastic waste reduction, carrying capacity.",
+    "Legal: short-term rental regulations, employment laws, accessibility mandates, food safety standards."]},
+{n:39,s:"L4",g:"PESTEL: political and legal",q:"Give four examples of political or legal factors affecting tourism, per the module.",
+ a:["Visa openness: e-visas and visa-free travel significantly boost inbound arrivals.",
+    "National tourism directives: DOT campaigns and infrastructure funding drive regional growth.",
+    "Geopolitical risk: regional conflicts or diplomatic tensions cause flight cancellations and safety concerns.",
+    "Taxation: municipal tourism taxes, hotel bed levies, and airport passenger service charges affect destination pricing.",
+    "Labor laws: reliance on human capital makes hospitality sensitive to minimum wage hikes and labor contracts.",
+    "Consumer rights and environmental compliance: passenger bills of rights, refund policies, data protection, and mandatory EIA for coastal resorts."]},
+{n:40,s:"L4",g:"PESTEL: economic",q:"Explain income elasticity of demand and foreign exchange swings in tourism.",
+ a:["Income elasticity: tourism is a discretionary purchase; luxury travel booms when disposable income rises, while staycations and budget travel dominate during recessions.",
+    "Exchange rate swings: a weaker local currency makes a destination cheaper for foreign travelers, while discouraging outbound travel by residents.",
+    "Cost-push drivers: aviation fuel and F&B inflation directly affect room rates (ADR) and airline pricing, forcing dynamic revenue management."]},
+{n:41,s:"L4",g:"PESTEL: socio-cultural",q:"Name four socio-cultural shifts affecting tourism demand.",
+ a:["Bleisure and remote work: blending business trips with leisure extensions, altering stay length and room needs.",
+    "Health and wellness tourism: demand for spa resorts, meditation retreats, and organic dining.",
+    "Experiential travel seeking: preference for authentic cultural immersion and local gastronomy over generic luxury.",
+    "Solo and demographic shifts: rise of solo female travelers and the “Silver Tsunami” of active seniors needing tailored safety and accessibility."]},
+{n:42,s:"L4",g:"PESTEL: technological and environmental",q:"Give an example each of smart tourism infrastructure, climate resilience, and circular economy practices.",
+ a:["Smart tourism infrastructure: mobile keyless entry, AI hyper-personalized recommendations, automated messaging bots, IoT energy-saving rooms.",
+    "Climate change resilience: coastal erosion, extreme weather, and coral bleaching threaten destinations, requiring sustainable adaptation plans.",
+    "Circular economy in hotels: eliminating single-use plastics, zero-food-waste programs, and rainwater harvesting to earn eco-conscious guest loyalty."]},
+{n:43,s:"L4",g:"Competitive analysis",q:"What is the strategic purpose of competitive analysis, and what benchmarks and intelligence sources does the module list?",
+ a:["Purpose: identify competitor strengths, weaknesses, price points, and service gaps to uncover opportunities and preempt threats.",
+    "Key benchmarks: RevPAR, ADR (Average Daily Rate), Occupancy Rate, Customer Satisfaction (NPS), and Digital Visibility.",
+    "Competitive intelligence: continuous data from online review channels (TripAdvisor, Google Reviews), rate shopping tools, mystery shopping, and industry reports."]},
+{n:44,s:"L4",g:"Porter's Five Forces",q:"Name Porter's five forces as applied to tourism, with one driver each.",
+ a:["Threat of new entrants: capital intensity and brand equity, low for boutique stays and Airbnb listings, high for luxury resorts.",
+    "Bargaining power of suppliers: airlines, specialized culinary vendors, and GDS software vendors hold pricing leverage.",
+    "Bargaining power of buyers: high, due to transparent OTA price comparison and zero switching costs.",
+    "Industry rivalry: very high intensity, since perishable inventory (an empty room = lost revenue) drives aggressive price wars.",
+    "Threat of substitutes: virtual reality meetings substituting business travel, staycations substituting international trips."]},
+{n:45,s:"L4",g:"Porter's Five Forces",q:"According to the Five Forces Intensity table, which forces are rated very high, high, moderate, and low-moderate?",
+ a:["Very high: competitive rivalry, driven by fixed asset costs and perishable rooms causing heavy low-season discounting.",
+    "High: bargaining power of buyers, since OTAs give guests price transparency, reviews, and instant alternatives.",
+    "Moderate: threat of substitutes (alternative leisure, videoconferencing) and threat of new entrants (high barrier for luxury resorts, low for home sharing/glamping).",
+    "Low to moderate: power of suppliers, high for dominant OTAs and aircraft makers, low for local produce vendors."]},
+{n:46,s:"L4",g:"Competitor types",q:"Differentiate direct, indirect, and future/potential competitors.",
+ a:["Direct competitors: properties offering similar products to the same target market, in the same trade area, at similar price tiers.",
+    "Indirect competitors: entities offering different products that satisfy the same underlying need, such as rest, getaway, or celebration.",
+    "Future/potential competitors: new developments, entering global chains, or non-traditional tech players disrupting travel fulfillment."]},
+{n:47,s:"L4",g:"SWOT",q:"Give one example each of a strength, weakness, opportunity, and threat listed in the module's hospitality SWOT.",
+ a:["Strength: prime beachfront or central CBD location; strong international brand heritage and loyalty program; high guest satisfaction and trained staff.",
+    "Weakness: aging property infrastructure requiring heavy CapEx; over-reliance on third-party OTAs with high commissions; seasonal staff turnover.",
+    "Opportunity: expanding eco-tourism and wellness retreat packages; direct booking incentives to reduce OTA dependency; targeting digital nomad markets.",
+    "Threat: economic downturns reducing corporate travel budgets; unregulated short-term rental expansion; extreme climate disruptions to peak seasons."]},
+{n:48,s:"L4",g:"Perceptual mapping",q:"What is a perceptual positioning map used for in hospitality, and what is “white space”?",
+ a:["It visually illustrates how guests perceive competing brands along key purchasing dimensions, such as price vs. experience uniqueness.",
+    "White space: underserved market gaps (e.g., affordable luxury or eco-boutique experiential stays) that marketing directors can identify and target with differentiated offers."]},
+{n:49,s:"L4",g:"Porter's Generic Strategies",q:"Name Porter's three generic strategies in tourism, with an example brand or model for each.",
+ a:["Cost leadership: lowest operational cost structure for unbeatable budget prices; unbundled, pay-per-add-on models, high-volume automated operations. Example: AirAsia, ibis Budget Hotels.",
+    "Differentiation: unique, highly valued guest experiences commanding premium rates; hyper-personalized concierge and butler service, bespoke architecture and culinary excellence. Example: Ritz-Carlton, Aman Resorts.",
+    "Focus/niche: tailoring services exclusively for a narrow, well-defined segment; specialized dive resorts, wellness sanctuaries, halal-certified or vegan luxury retreats. Example: Farm at San Benito, dive resorts."]},
+{n:50,s:"L4",g:"Market disruptors",q:"Name three market disruptors and tech competitors discussed in the module.",
+ a:["The sharing economy shift: platforms like Airbnb and VRBO expanded supply exponentially, forcing hotels to innovate room design and long-stay amenities.",
+    "OTA commission pressures: OTAs take 15–25% commissions; hotels respond with direct-booking price guarantees and exclusive loyalty perks.",
+    "Generative AI travel agents: AI platforms booking entire itineraries directly are shifting how customers discover and select destinations."]},
+{n:51,s:"L4",g:"Strategic action pillars",q:"Name the four strategic action pillars for tourism managers.",
+ a:["Continuous environmental scanning: real-time PESTEL tracking to spot regulatory, economic, and socio-cultural shifts before competitors react.",
+    "Direct channel optimization: strong brand.com channels and loyalty programs to reclaim guest relationships and lower OTA commission fees.",
+    "Sustainable brand accreditation: recognized green certifications (e.g., GSTC) to capture the eco-conscious traveler demographic.",
+    "Dynamic revenue management: predictive AI analytics to adjust room rates dynamically based on competitor rates, demand, and weather."]}
+];
+
+/* =================== MOCK QUIZ (multiple choice) =================== */
+var QUIZ = [
+{n:1,s:"L1",t:"Marketing basics",q:"According to the module, what is tourism and hospitality marketing?",
+ o:["The process of manufacturing travel products for resale","How segments of the tourism industry promote their products or services to prospective travelers and guests","A government function that regulates airfare","A synonym for customer service training"],c:1,
+ ex:"It is defined as how segments of the tourism industry promote their products or services to prospective travelers and guests, covering research, positioning, promotion, pricing, and distribution."},
+{n:2,s:"L1",t:"Marketing basics",q:"Which of the following is NOT one of the three components of the marketing concept?",
+ o:["Guest needs, wants, and demands","Sustainable profitability","Integrated marketing","Aggressive undercutting of competitor prices"],c:3,
+ ex:"The three components are guest needs/wants/demands, sustainable profitability, and integrated marketing — not price undercutting."},
+{n:3,s:"L1",t:"Service characteristics",q:"A guest cannot see, taste, feel, hear, or smell a hotel stay before buying it. Which characteristic is this?",
+ o:["Inseparability","Intangibility","Perishability","Heterogeneity"],c:1,
+ ex:"This is intangibility — the marketing implication is providing strong physical evidence and brand signals to reduce buyer uncertainty."},
+{n:4,s:"L1",t:"Service characteristics",q:"An unsold hotel room tonight represents lost revenue forever because rooms cannot be stored. This describes:",
+ o:["Perishability","Inseparability","Intangibility","Variability"],c:0,
+ ex:"Perishability of inventory — addressed through dynamic pricing, yield management, and promotional discounting."},
+{n:5,s:"L1",t:"Industry metrics",q:"Per the module's retention statistic, how much more does it cost to acquire a new guest than to retain an existing one?",
+ o:["Twice as much","Three times as much","Five times as much","Ten times as much"],c:2,
+ ex:"It costs up to five times more to acquire a new customer than to retain an existing guest."},
+{n:6,s:"L1",t:"Marketing strategies",q:"Promoting a geographic location as a compelling destination with unique cultural and recreational value is called:",
+ o:["Affinity marketing","Place marketing","Multi-channel distribution","Internal marketing"],c:1,
+ ex:"This is place marketing, one of the brand and emotional connection strategies alongside brand marketing and emotional engagement."},
+{n:7,s:"L1",t:"Marketing strategies",q:"Partnering with a credit card company or alumni association to offer co-branded travel packages is an example of:",
+ o:["Affinity marketing","Yield management","Service blueprinting","Rate fencing"],c:0,
+ ex:"Affinity marketing targets group affiliations with tailored packages and co-branded offers."},
+{n:8,s:"L1",t:"Traditional vs. tourism marketing",q:"In the comparative table, what replaces \"factory processes hidden from the buyer\" in tourism and hospitality marketing?",
+ o:["Automated inventory systems","Frontline staff directly define product quality","Warehousing of finished goods","Fixed, non-negotiable pricing"],c:1,
+ ex:"In services, frontline staff directly define product quality, since production and consumption are simultaneous."},
+{n:9,s:"L1",t:"Marketing planning process",q:"Which stage of the marketing planning process involves monitoring online reviews and repeat visit rate?",
+ o:["Audit and research","Targeting","Campaign mix","Review and loyalty"],c:3,
+ ex:"Review and loyalty: monitor online reviews, guest satisfaction, and repeat visit rate."},
+
+/* 8 Ps */
+{n:10,s:"L2",t:"8 Ps",q:"Which of the four unique-nature points refers to service quality varying with staff performance and guest mood?",
+ o:["Intangible experience","Simultaneous production and consumption","Perishable inventory","Heterogeneous output"],c:3,
+ ex:"Heterogeneous output describes variability in service quality due to staff, mood, and circumstances."},
+{n:11,s:"L2",t:"8 Ps: Product",q:"A hotel's fine dining and personalized butler service are examples of:",
+ o:["Facilitating services","Enhancing services","Rate fences","Servicescape elements"],c:1,
+ ex:"Enhancing services are value-added elements that differentiate the brand, unlike facilitating services (check-in desk, keycards) which are merely essential."},
+{n:12,s:"L2",t:"8 Ps: Place",q:"Booking directly through a brand's website maximizes profit margin because it is an example of:",
+ o:["Indirect distribution","Direct distribution","Affinity marketing","Rate fencing"],c:1,
+ ex:"Direct distribution channels (website, app, front desk) maximize margin and give ownership of guest relationship data."},
+{n:13,s:"L2",t:"8 Ps: Price",q:"What does RevPAR stand for?",
+ o:["Revenue Per Average Room","Revenue Per Available Room","Return on Property Assets and Rates","Rate Volatility Per Average Rate"],c:1,
+ ex:"RevPAR = Revenue Per Available Room, a key yield-management metric."},
+{n:14,s:"L2",t:"8 Ps: Price",q:"Non-refundable rules and advance-purchase discounts used to segment price-sensitive guests are called:",
+ o:["Rate fences","Servicescapes","Pricing tripods","Blueprints"],c:0,
+ ex:"Rate fences apply non-refundable rules, length-of-stay requirements, and advance-purchase discounts."},
+{n:15,s:"L2",t:"8 Ps: Promotion",q:"Using high-definition imagery and virtual tours to make an intangible destination experience concrete is called:",
+ o:["Tangibilizing the service","Service blueprinting","Rate fencing","Internal marketing"],c:0,
+ ex:"Tangibilizing the service uses imagery, virtual tours, and sensory description to make intangible offerings tangible."},
+{n:16,s:"L2",t:"8 Ps: People",q:"Staff consistently delivering genuine warmth and empathy on the job, even when it is effortful, is called:",
+ o:["Emotional labor","Internal marketing","Service recovery","Affinity marketing"],c:0,
+ ex:"Emotional labor is the effort staff put into consistently displaying genuine warmth, empathy, and hospitality."},
+{n:17,s:"L2",t:"8 Ps: Process",q:"Mapping the entire guest journey to identify frontstage interactions, backstage operations, and fail points is called:",
+ o:["Service blueprinting","Servuction modeling","Rate fencing","Perceptual mapping"],c:0,
+ ex:"Service blueprinting maps the guest journey from pre-arrival to post-checkout."},
+{n:18,s:"L2",t:"8 Ps: Physical evidence",q:"Architecture, lighting, music, scent, and cleanliness together make up the hospitality:",
+ o:["Servicescape","Blueprint","Servuction triangle","Rate fence"],c:0,
+ ex:"The servicescape is the physical environment that shapes guest expectations and emotional comfort."},
+{n:19,s:"L2",t:"8 Ps: Partnership",q:"Airline code-shares and hotel-airline loyalty point integrations are examples of the 8th P, which is:",
+ o:["People","Process","Partnership","Place"],c:2,
+ ex:"Partnership covers strategic alliances such as code-shares and loyalty integrations that expand reach and add value."},
+{n:20,s:"L2",t:"Core principle",q:"Per the module's core-principle slide, marketing in tourism and hospitality is best described as:",
+ o:["A department that handles advertising only","An all-pervading philosophy where every guest interaction is a moment of truth","A once-a-year planning exercise","A cost center to be minimized"],c:1,
+ ex:"“Marketing is not merely a department — it is an all-pervading philosophy where every guest interaction is a moment of truth.”"},
+
+/* Lesson 3 */
+{n:21,s:"L3",t:"Consumption model",q:"Need arousal, information search, and risk evaluation happen during which stage of the guest consumption model?",
+ o:["Pre-purchase stage","Service encounter stage","Post-encounter stage","Recovery stage"],c:0,
+ ex:"The pre-purchase stage covers need arousal (wanderlust), information search, risk evaluation, and choosing among alternatives."},
+{n:22,s:"L3",t:"Travel motivators",q:"A desire to escape stress and spend quality time with family is an example of a:",
+ o:["Pull factor","Push factor","Credence attribute","Structural bond"],c:1,
+ ex:"Push factors are internal psychological drivers, such as stress relief, escape, and family time."},
+{n:23,s:"L3",t:"Evaluating attributes",q:"Kitchen food safety standards are hard to evaluate even after a stay. This is an example of a:",
+ o:["Search attribute","Experience attribute","Credence attribute","Financial attribute"],c:2,
+ ex:"Credence attributes are qualities difficult to evaluate even post-stay, such as food safety or eco-sustainability practices."},
+{n:24,s:"L3",t:"Perceived risk",q:"Fear of wasted vacation time and ruined family memories is an example of which type of risk?",
+ o:["Functional risk","Physical risk","Financial risk","Psychological risk"],c:3,
+ ex:"Psychological risk covers fear of wasted time and ruined memories, distinct from functional (facility) or physical (safety) risks."},
+{n:25,s:"L3",t:"Guest expectations",q:"The minimum acceptable service threshold a guest will tolerate without becoming dissatisfied is called:",
+ o:["Desired service","Adequate service","Zone of tolerance","Positive disconfirmation"],c:1,
+ ex:"Adequate service is the minimum threshold; the zone of tolerance is the range between adequate and desired service."},
+{n:26,s:"L3",t:"Experience economy",q:"A cooking class or heritage tour represents which of Pine and Gilmore's 4 Es?",
+ o:["Entertainment","Educational","Escapist","Esthetic"],c:1,
+ ex:"Educational experiences involve active learning, such as cooking classes and heritage tours."},
+{n:27,s:"L3",t:"Servuction model",q:"In the servuction model, a noisy dining room disturbing other guests' experience is an example of:",
+ o:["Inanimate environment","Contact personnel","Other customers","Backstage operations"],c:2,
+ ex:"Other customers' behavior (e.g., a noisy dining room vs. a tranquil spa) is one of the three visible servuction elements."},
+{n:28,s:"L3",t:"Touchpoint intensity",q:"An app-based food delivery transaction, where success depends on technological reliability, is a:",
+ o:["High-contact encounter","Low-contact encounter","Credence-based encounter","Structural bond"],c:1,
+ ex:"Low-contact encounters happen digitally or at a distance and rely on technological reliability and frictionless UX."},
+{n:29,s:"L3",t:"Satisfaction model",q:"When actual performance exceeds a guest's expectations, the expectation disconfirmation model calls this:",
+ o:["Simple confirmation","Negative disconfirmation","Positive disconfirmation","Zone of tolerance"],c:2,
+ ex:"Positive disconfirmation occurs when performance exceeds expectation, producing delight."},
+{n:30,s:"L3",t:"Service recovery",q:"In the LAST framework for complaint handling, what does the \"S\" stand for?",
+ o:["Survey","Solve","Serve","Schedule"],c:1,
+ ex:"LAST = Listen, Apologize, Solve, and Thank."},
+{n:31,s:"L3",t:"Loyalty ladders",q:"Reward points and free room upgrades that encourage repeat bookings are an example of which type of loyalty bond?",
+ o:["Financial bonds","Social and personal bonds","Structural bonds","Credence bonds"],c:0,
+ ex:"Financial bonds use reward points, tier discounts, and upgrades to encourage repeat business."},
+{n:32,s:"L3",t:"Sustainable marketing",q:"Marketing that respects indigenous heritage and ensures tourism's economic benefits flow back to host communities is called:",
+ o:["Green hospitality marketing","Community-based tourism marketing","Affinity marketing","Direct channel optimization"],c:1,
+ ex:"Community-based tourism marketing focuses on local culture, indigenous heritage, and keeping economic benefits in the host community."},
+
+/* Lecture 4 */
+{n:33,s:"L4",t:"Marketing environment",q:"Which environment includes actors close to the company, such as suppliers and intermediaries?",
+ o:["Micro-environment","Macro-environment","Servuction environment","PESTEL environment"],c:0,
+ ex:"The micro-environment covers actors close to the company; the macro-environment covers broader societal forces."},
+{n:34,s:"L4",t:"Micro-environment",q:"Which micro-environment actor includes financial institutions, media, and local resident communities?",
+ o:["Suppliers","Intermediaries","Competitors","Publics"],c:3,
+ ex:"Publics include financial institutions, media, government regulators, and local resident communities."},
+{n:35,s:"L4",t:"PESTEL",q:"AI booking bots, contactless check-in, and IoT smart room automation fall under which PESTEL factor?",
+ o:["Political","Technological","Environmental","Legal"],c:1,
+ ex:"These are examples of the Technological factor in the PESTEL framework."},
+{n:36,s:"L4",t:"PESTEL",q:"Coral bleaching and carrying-capacity management fall under which PESTEL factor?",
+ o:["Economic","Socio-cultural","Environmental","Legal"],c:2,
+ ex:"Climate change impacts, eco-certification, and carrying capacity fall under the Environmental factor."},
+{n:37,s:"L4",t:"PESTEL: economic",q:"A weaker local currency has what effect on inbound tourism, per the module?",
+ o:["It discourages foreign travelers from visiting","It makes the destination cheaper for foreign travelers","It has no effect on tourism demand","It only affects outbound travel"],c:1,
+ ex:"A weaker local currency makes destinations cheaper for foreign travelers while discouraging outbound travel by residents."},
+{n:38,s:"L4",t:"PESTEL: socio-cultural",q:"Blending business trips with leisure extensions, fueled by remote work flexibility, is known as:",
+ o:["Bleisure","Credence travel","Structural bonding","Servuction"],c:0,
+ ex:"\"Bleisure\" blends business and leisure travel, altering stay length and room facility requirements."},
+{n:39,s:"L4",t:"Competitive analysis",q:"Which of these is listed as a key competitive benchmark in the module?",
+ o:["RevPAR and ADR","Push and pull factors","The 4 Es","The LAST framework"],c:0,
+ ex:"Key benchmarks include RevPAR, ADR, Occupancy Rate, Customer Satisfaction (NPS), and Digital Visibility."},
+{n:40,s:"L4",t:"Porter's Five Forces",q:"Per the intensity table, which force is rated VERY HIGH due to perishable inventory and fixed asset costs?",
+ o:["Threat of new entrants","Bargaining power of suppliers","Competitive rivalry","Threat of substitutes"],c:2,
+ ex:"Competitive rivalry is VERY HIGH: fixed asset costs plus perishable rooms drive heavy low-season discounting."},
+{n:41,s:"L4",t:"Porter's Five Forces",q:"Virtual reality meetings replacing business travel is an example of which force?",
+ o:["Threat of new entrants","Threat of substitutes","Bargaining power of buyers","Industry rivalry"],c:1,
+ ex:"Threat of substitutes includes VR meetings substituting business travel and staycations substituting international trips."},
+{n:42,s:"L4",t:"Competitor types",q:"A new non-traditional tech player disrupting travel fulfillment is classified as a:",
+ o:["Direct competitor","Indirect competitor","Future/potential competitor","Supplier"],c:2,
+ ex:"Future/potential competitors include new developments, entering global chains, and disruptive tech players."},
+{n:43,s:"L4",t:"SWOT",q:"\"Over-reliance on third-party OTAs with high commissions\" is listed under which SWOT category?",
+ o:["Strengths","Weaknesses","Opportunities","Threats"],c:1,
+ ex:"This is an internal Weakness, alongside aging infrastructure and seasonal staff turnover."},
+{n:44,s:"L4",t:"Perceptual mapping",q:"Underserved market gaps such as \"affordable luxury\" that a positioning map can reveal are called:",
+ o:["Rate fences","White space","Servicescapes","Push factors"],c:1,
+ ex:"White space refers to underserved market gaps that marketing directors can target with differentiated offers."},
+{n:45,s:"L4",t:"Porter's Generic Strategies",q:"Ritz-Carlton and Aman Resorts are given as examples of which generic strategy?",
+ o:["Cost leadership","Differentiation","Focus/niche strategy","Direct channel optimization"],c:1,
+ ex:"Differentiation creates unique, highly valued experiences commanding premium rates — exemplified by Ritz-Carlton and Aman Resorts."},
+{n:46,s:"L4",t:"Market disruptors",q:"Hotels offering direct-booking price guarantees and loyalty perks are primarily responding to:",
+ o:["OTA commission pressures","Generative AI travel agents","The sharing economy shift","Climate change resilience needs"],c:0,
+ ex:"OTAs take 15–25% commissions; hotels counter with direct-booking price guarantees and exclusive loyalty perks."},
+{n:47,s:"L4",t:"Strategic action pillars",q:"Using predictive AI analytics to adjust room rates based on competitor rates, demand, and weather is part of:",
+ o:["Continuous environmental scanning","Direct channel optimization","Sustainable brand accreditation","Dynamic revenue management"],c:3,
+ ex:"Dynamic revenue management uses predictive AI analytics to adjust rates in real time."},
+{n:48,s:"L4",t:"Strategic action pillars",q:"Pursuing a GSTC certification to capture the eco-conscious traveler demographic is part of:",
+ o:["Continuous environmental scanning","Sustainable brand accreditation","Direct channel optimization","Dynamic revenue management"],c:1,
+ ex:"Sustainable brand accreditation involves recognized green certifications such as GSTC."}
+];
+
+/* ---------- helpers ---------- */
+function $(s,r){return (r||document).querySelector(s);}
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function shuffle(a){var b=a.slice(),i,j,t;for(i=b.length-1;i>0;i--){j=Math.floor(Math.random()*(i+1));t=b[i];b[i]=b[j];b[j]=t;}return b;}
+var LETTERS=["A","B","C","D"];
+
+/* ---------- tabs ---------- */
+$$(".tabs button").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    var t=btn.getAttribute("data-tab");
+    $$(".tabs button").forEach(function(b){b.setAttribute("aria-selected",b===btn?"true":"false");});
+    ["key","quiz"].forEach(function(k){$("#tab-"+k).hidden=(k!==t);});
+    window.scrollTo(0,0);
+  });
+});
+
+/* ---------- answer key ---------- */
+var keyState={filter:"ALL",term:"",open:false};
+function renderKey(){
+  var html="",lastS="",lastG="",shown=0,term=keyState.term.toLowerCase();
+  KEY.forEach(function(d){
+    if(keyState.filter!=="ALL"&&d.s!==keyState.filter)return;
+    if(term&&(d.q+" "+d.a.join(" ")).toLowerCase().indexOf(term)===-1)return;
+    if(d.s!==lastS){html+='<h2 class="sec">'+esc(SEC[d.s])+'</h2>';lastS=d.s;lastG="";}
+    if(d.g!==lastG){html+='<h3 class="grp">'+esc(d.g)+'</h3>';lastG=d.g;}
+    html+='<details class="item"'+(keyState.open?" open":"")+'><summary><span class="num">'+d.n+'</span><span class="qt">'+esc(d.q)+'</span></summary><div class="ans"><ul>'+
+      d.a.map(function(x){return "<li>"+esc(x)+"</li>";}).join("")+"</ul></div></details>";
+    shown++;
+  });
+  if(!shown)html='<p class="lead">No questions match your search.</p>';
+  $("#key-root").innerHTML=html;
+  $("#count").textContent=shown+" of "+KEY.length+" questions shown";
+}
+$("#chips").addEventListener("click",function(e){
+  var b=e.target.closest(".chip");if(!b)return;
+  keyState.filter=b.getAttribute("data-f");
+  $$(".chip").forEach(function(c){c.setAttribute("aria-pressed",c===b?"true":"false");});
+  renderKey();
+});
+$("#q").addEventListener("input",function(e){keyState.term=e.target.value;renderKey();});
+$("#expand").addEventListener("click",function(){
+  keyState.open=!keyState.open;
+  $$("#key-root details").forEach(function(d){d.open=keyState.open;});
+  $("#expand").textContent=keyState.open?"Collapse all":"Expand all";
+});
+window.addEventListener("beforeprint",function(){$$("#key-root details").forEach(function(d){d.open=true;});});
+
+/* ---------- mock quiz ---------- */
+var qz={stage:"setup",deck:[],picks:[],opts:{scope:"ALL",count:"20",shuffleQ:true,shuffleO:true}};
+
+function renderSetup(){
+  qz.stage="setup";
+  var o=qz.opts;
+  $("#quiz-root").innerHTML=
+   '<p class="lead">A multiple-choice quiz built from the four lectures. Answer every item, submit, and you will get a graded answer sheet — your picks against the correct letters — plus a full review.</p>'+
+   '<div class="setup">'+
+   '<label>Topic<select id="o-scope">'+
+     '<option value="ALL"'+(o.scope==="ALL"?" selected":"")+'>All lectures (48 items)</option>'+
+     '<option value="L1"'+(o.scope==="L1"?" selected":"")+'>Lecture 1: Foundational concepts (9)</option>'+
+     '<option value="L2"'+(o.scope==="L2"?" selected":"")+'>Lectures 2–3: The 8 Ps (11)</option>'+
+     '<option value="L3"'+(o.scope==="L3"?" selected":"")+'>Lesson 3: Consumer behavior (12)</option>'+
+     '<option value="L4"'+(o.scope==="L4"?" selected":"")+'>Lecture 4: Environment &amp; competition (16)</option>'+
+   '</select></label>'+
+   '<label>Number of items<select id="o-count">'+
+     ["10","20","30","all"].map(function(v){return '<option value="'+v+'"'+(o.count===v?" selected":"")+'>'+(v==="all"?"All in topic":v)+'</option>';}).join("")+
+   '</select></label>'+
+   '<label class="check"><input type="checkbox" id="o-shuffleq"'+(o.shuffleQ?" checked":"")+'> Shuffle question order</label>'+
+   '<label class="check"><input type="checkbox" id="o-shuffleo"'+(o.shuffleO?" checked":"")+'> Shuffle answer choices</label>'+
+   '</div>'+
+   '<div class="row"><button class="btn primary" data-act="start">Start quiz</button></div>';
+}
+
+function buildDeck(){
+  qz.opts.scope=$("#o-scope").value;
+  qz.opts.count=$("#o-count").value;
+  qz.opts.shuffleQ=$("#o-shuffleq").checked;
+  qz.opts.shuffleO=$("#o-shuffleo").checked;
+  var pool=QUIZ.filter(function(d){return qz.opts.scope==="ALL"||d.s===qz.opts.scope;});
+  if(qz.opts.shuffleQ)pool=shuffle(pool);
+  var n=qz.opts.count==="all"?pool.length:Math.min(+qz.opts.count,pool.length);
+  pool=pool.slice(0,n);
+  return pool.map(function(d){
+    var order=[0,1,2,3];
+    if(qz.opts.shuffleO)order=shuffle(order);
+    return {
+      src:d,
+      opts:order.map(function(i){return d.o[i];}),
+      correctIdx:order.indexOf(d.c)
+    };
+  });
+}
+
+function renderPaper(){
+  qz.stage="taking";
+  var html='<div class="qz-head"><h2>Answer every item, then submit</h2><span class="qz-progress" id="progress"></span></div>'+
+    '<div class="qbar"><i id="qbar-fill" style="width:0%"></i></div><div class="paper" id="paper">';
+  qz.deck.forEach(function(item,i){
+    html+='<div class="pq"><span class="pnum">'+(i+1)+'.</span><div class="pbody">'+
+      '<p class="ptopic">'+esc(item.src.t)+'</p><p class="pstem">'+esc(item.src.q)+'</p><div class="opts">'+
+      item.opts.map(function(opt,k){
+        return '<label class="opt" data-qi="'+i+'" data-oi="'+k+'"><input type="radio" name="q'+i+'" value="'+k+'"><span class="lab">'+LETTERS[k]+'</span><span>'+esc(opt)+'</span></label>';
+      }).join("")+
+      '</div></div></div>';
+  });
+  html+='</div><div class="submit-bar"><span class="unanswered" id="unanswered"></span><button class="btn primary" data-act="submit">Submit quiz</button></div>';
+  $("#quiz-root").innerHTML=html;
+  updateProgress();
+}
+
+function updateProgress(){
+  var answered=qz.picks.filter(function(p){return p!=null;}).length,total=qz.deck.length;
+  var pe=$("#progress");if(pe)pe.textContent=answered+" of "+total+" answered";
+  var pb=$("#qbar-fill");if(pb)pb.style.width=Math.round(answered/total*100)+"%";
+  var ua=$("#unanswered");
+  if(ua)ua.textContent=answered<total?(total-answered)+" question"+((total-answered)===1?"":"s")+" left blank":"All questions answered";
+}
+
+$("#quiz-root").addEventListener("click",function(e){
+  var opt=e.target.closest(".opt");
+  if(opt&&qz.stage==="taking"){
+    var qi=+opt.getAttribute("data-qi"),oi=+opt.getAttribute("data-oi");
+    qz.picks[qi]=oi;
+    $$('.opt[data-qi="'+qi+'"]').forEach(function(o){o.classList.remove("picked");});
+    opt.classList.add("picked");
+    var input=opt.querySelector("input");if(input)input.checked=true;
+    updateProgress();
+    return;
+  }
+  var b=e.target.closest("[data-act]");if(!b)return;
+  var act=b.getAttribute("data-act");
+  if(act==="start"){
+    qz.deck=buildDeck();
+    qz.picks=qz.deck.map(function(){return null;});
+    renderPaper();
+    window.scrollTo(0,0);
+  }else if(act==="submit"){
+    renderResults();
+    window.scrollTo(0,0);
+  }else if(act==="again"){
+    renderSetup();
+  }else if(act==="retry-wrong"){
+    var wrongSrcs=qz._wrongSrcs||[];
+    var pool=wrongSrcs;
+    qz.deck=pool.map(function(d){
+      var order=[0,1,2,3];
+      if(qz.opts.shuffleO)order=shuffle(order);
+      return {src:d,opts:order.map(function(i){return d.o[i];}),correctIdx:order.indexOf(d.c)};
+    });
+    qz.picks=qz.deck.map(function(){return null;});
+    renderPaper();
+    window.scrollTo(0,0);
+  }
+});
+
+function renderResults(){
+  qz.stage="results";
+  var total=qz.deck.length,correctCount=0,wrongSrcs=[];
+  qz.deck.forEach(function(item,i){
+    if(qz.picks[i]===item.correctIdx)correctCount++;
+    else wrongSrcs.push(item.src);
+  });
+  qz._wrongSrcs=wrongSrcs;
+  var pct=Math.round(correctCount/total*100);
+  var msg=pct>=90?"Excellent recall across the lectures.":
+          pct>=75?"Good grasp overall — review the missed items below.":
+          pct>=50?"Getting there. Reread the sections behind your misses.":
+          "Worth another pass through the answer key before you retry.";
+
+  var html='<h2>Score</h2><p class="result-big">'+correctCount+' / '+total+'</p>'+
+    '<p class="result-sub">'+pct+'% correct. '+msg+'</p>';
+
+  html+='<p class="sheet-title">Answer sheet</p><div class="bubble-grid">';
+  qz.deck.forEach(function(item,i){
+    var picked=qz.picks[i];
+    var isRight=picked===item.correctIdx;
+    html+='<div class="bubble '+(isRight?"correct":"wrong")+'"><span class="bnum">'+(i+1)+'.</span><span class="bletters">';
+    for(var k=0;k<item.opts.length;k++){
+      var cls="bletter";
+      var isYour=(picked===k);
+      var isCorrectLetter=(k===item.correctIdx);
+      if(isCorrectLetter)cls+=" right";
+      if(isYour){cls+=" your";if(!isRight)cls+=" wrong-pick";}
+      html+='<span class="'+cls+'">'+LETTERS[k]+'</span>';
+    }
+    html+='</span></div>';
+  });
+  html+='</div>';
+
+  html+='<p class="sheet-title">Review</p><div class="review">';
+  qz.deck.forEach(function(item,i){
+    var picked=qz.picks[i];
+    var isRight=picked===item.correctIdx;
+    html+='<div class="review-item"><div class="rhead"><span class="tag '+(isRight?"correct":"wrong")+'">'+(isRight?"Correct":picked==null?"Blank":"Incorrect")+'</span><span class="rq">'+(i+1)+'. '+esc(item.src.q)+'</span></div><ul class="ropts">'+
+      item.opts.map(function(opt,k){
+        var cls="";
+        if(k===item.correctIdx)cls="right";
+        else if(k===picked)cls="picked-wrong";
+        return '<li class="'+cls+'">'+LETTERS[k]+'. '+esc(opt)+'</li>';
+      }).join("")+
+      '</ul><p class="explain">'+esc(item.src.ex)+'</p></div>';
+  });
+  html+='</div>';
+
+  html+='<div class="row">'+(wrongSrcs.length?'<button class="btn primary" data-act="retry-wrong">Retry the '+wrongSrcs.length+' missed item'+(wrongSrcs.length===1?"":"s")+'</button>':'')+
+    '<button class="btn'+(wrongSrcs.length?'':' primary')+'" data-act="again">New quiz</button></div>';
+
+  $("#quiz-root").innerHTML=html;
+}
+
+renderKey();
+renderSetup();
+})();
+</script>
+</body>
+</html>
